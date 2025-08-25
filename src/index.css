@@ -2,26 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-   
+    --background: 13 13 24;
+    --foreground: 222 223 238;
+    --card: 29 31 44;
+    --card-foreground: 222 223 238;
+    --popover: 29 31 44;
+    --popover-foreground: 222 223 238;
+    --primary: 110 41 246;
+    --primary-foreground: 240 240 247;
+    --secondary: 37 39 54;
+    --secondary-foreground: 193 194 217;
+    --muted: 46 47 64;
+    --muted-foreground: 163 164 191;
+    --accent: 89 34 198;
+    --accent-foreground: 221 205 253;
+    --destructive: 239 68 68;
+    --destructive-foreground: 248 250 252;
+    --border: 54 56 74;
+    --input: 54 56 74;
+    --ring: 110 41 246;
+    --radius: 0.5rem;
+    
+    /* Custom colors */
+    --silicon-purple: 110 41 246;
+    --silicon-green: 41 230 123;
+    --silicon-yellow: 255 230 0;
+    --silicon-light-purple: 181 146 250;
+    --silicon-dark-purple: 66 26 148;
+    --silicon-text-light: 240 240 247;
+    --silicon-text-muted: 163 164 191;
+    --silicon-text-dark: 79 81 103;
+    --silicon-bg-dark: 13 13 24;
+    --silicon-bg-card: 29 31 44;
+    --silicon-bg-secondary: 22 23 34;
   }
 
-  .dark {
-
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
-
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .font-aspekta {
+    font-family: "Inter", sans-serif;
+  }
+}
+
+@layer components {
+  .btn-hero {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold rounded-lg transition-all;
+  }
+  
+  .btn-primary {
+    @apply bg-[hsl(var(--silicon-purple))] text-[hsl(var(--silicon-text-light))] hover:bg-[hsl(var(--silicon-purple))]/90;
+  }
+  
+  .btn-secondary {
+    @apply bg-[hsl(var(--silicon-bg-secondary))] text-[hsl(var(--foreground))] border border-[hsl(var(--border))] hover:bg-[hsl(var(--accent))]/10;
+  }
+  
+  .btn-green {
+    @apply bg-[hsl(var(--silicon-green))] text-black hover:bg-[hsl(var(--silicon-green))]/90;
+  }
+  
+  .model-card {
+    @apply bg-[hsl(var(--silicon-bg-card))] rounded-[32px] p-4 transition-all hover:scale-[1.02] cursor-pointer;
+  }
+  
+  .section-gradient {
+    background: linear-gradient(0deg, hsl(var(--silicon-text-light)) 0%, hsl(var(--secondary-foreground)) 163%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .tag-badge {
+    @apply bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))] px-3 py-1 rounded text-xs uppercase font-mono;
+  }
+  
+  .hero-bg {
+    background: radial-gradient(ellipse at center, hsl(var(--silicon-purple))/20 0%, transparent 70%);
   }
 }
